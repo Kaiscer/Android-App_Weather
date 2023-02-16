@@ -74,7 +74,7 @@ public class WeatherActivity extends AppCompatActivity {
                    tvTime.setText(new SimpleDateFormat("hh:mm a").format(date));
                    // Formateamos la temperatura ya que viene en grados Farenheit
                    double dgC = ((weatherRes.getCurrently().getTemperature() - 32) * 5/9);
-                     tvTemp.setText((int) dgC);
+                     tvTemp.setText((int) dgC + "°C");
                         tvResultHumidity.setText(weatherRes.getCurrently().getHumidity()*100 + "%");
                         tvResultRain.setText(weatherRes.getCurrently().getPrecipProbability()*100 + "%");
                         tvResultTime.setText(weatherRes.getCurrently().getSummary());
