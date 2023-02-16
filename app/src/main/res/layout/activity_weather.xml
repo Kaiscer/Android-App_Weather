@@ -4,145 +4,156 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_view_weather"
     android:padding="@dimen/margin_16dp"
     tools:context=".WeatherActivity">
 
-    <TextView
-        android:id="@+id/tv_city"
+    <LinearLayout
+        android:id="@+id/ll_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:text="Text Provisional"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="@dimen/text_size_30sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent"
+        android:background="@color/color_view_weather"
+        android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/iv_cloud"
-        android:layout_width="189dp"
-        android:layout_height="147dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="12dp"
+        <TextView
+            android:id="@+id/tv_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_tv_city_18dp"
+            android:text="EUROPE/MADRID"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_30sp"
+            android:textStyle="bold"
+            android:constraintTop_toTopOf="parent"
+            />
 
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_city"
-        tools:srcCompat="@drawable/snow" />
+        <ImageView
+            android:id="@+id/iv_cloud"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_15dp"
+            tools:srcCompat="@drawable/snow"
+            android:constraintTop_toBottomOf="@+id/tv_city" />
 
-    <TextView
-        android:id="@+id/tv_time"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="10:00 am"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_cloud" />
 
-    <ImageView
-        android:id="@+id/iv_degree"
-        android:layout_width="60dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="4dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_time"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.803"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_time"
-        app:srcCompat="@drawable/degree" />
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:layout_gravity="center"
+            android:text="10:00 am"
+            android:textAlignment="center"
+            android:textSize="35sp"
+            android:textColor="@color/white"
+            android:constraintTop_toBottomOf="@+id/iv_cloud" />
+            />
 
-    <TextView
-        android:id="@+id/tv_temp"
-        android:layout_width="152dp"
-        android:layout_height="160dp"
-        android:layout_marginTop="4dp"
-        android:text="25"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="130sp"
-        app:layout_constraintTop_toBottomOf="@+id/tv_time"
-        tools:layout_editor_absoluteX="120dp" />
+        <TextView
+            android:id="@+id/tv_temp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:text="25"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_100sp"
+            android:constraintTop_toBottomOf="@+id/tv_time" />
+            />
 
-    <TextView
-        android:id="@+id/tv_humidity"
-        android:layout_width="118dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="8dp"
-        android:layout_weight="0.5"
-        android:text="@string/txt_humidity"
-        android:textAlignment="center"
-        android:textColor="@color/color_hr"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_temp" />
+        <LinearLayout
+            android:id="@+id/ll_humidityAndRain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_15dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:contraintTop_toBottomOf="@+id/tv_temp">
+            >
 
-    <TextView
-        android:id="@+id/tv_rain"
-        android:layout_width="99dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="8dp"
-        android:layout_weight="0.5"
-        android:text="@string/txt_rain"
-        android:textAlignment="center"
-        android:textColor="@color/color_hr"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/tv_humidity"
-        app:layout_constraintTop_toBottomOf="@+id/tv_temp" />
+            <TextView
+                android:id="@+id/tv_humidity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="@string/txt_humidity"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="@dimen/text_size_20sp"
+                />
 
-    <TextView
-        android:id="@+id/tv_result_humidity"
-        android:layout_width="118dp"
-        android:layout_height="22dp"
-        android:layout_marginTop="12dp"
-        android:layout_weight="0.5"
-        android:text="pro - 85%"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_humidity"
-        app:layout_constraintVertical_bias="0.0"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="50dp" />
+            <TextView
+                android:id="@+id/tv_rain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="@string/txt_rain"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="@dimen/text_size_20sp"
+                />
 
-    <TextView
-        android:id="@+id/tv_result_rain"
-        android:layout_width="133dp"
-        android:layout_height="22dp"
-        android:layout_marginTop="8dp"
-        android:layout_weight="0.5"
-        android:text="pro - 0%"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_rain"
-        app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="206dp"
-        tools:ignore="MissingConstraints" />
+        </LinearLayout>
 
-    <TextView
-        android:id="@+id/tv_detailTime"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Detail Time"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="@dimen/text_size_30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_result_rain"
-        app:layout_constraintVertical_bias="0.184"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="16dp" />
+        <LinearLayout
+            android:id="@+id/ll_resultHumidityAndRain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_15dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:contraintTop_toBottomOf="@+id/ll_humidityAndRain"
+            >
+
+            <TextView
+                android:id="@+id/tv_result_humidity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="pro - 85%"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_18sp"
+                />
+
+            <TextView
+                android:id="@+id/tv_result_rain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="pro - 0%"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_18sp" />
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/tv_detailTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_15dp"
+            android:text="Detail Time"
+            android:layout_gravity="center"
+            android:constraintTop_toBottomOf="@+id/ll_resultHumidityAndRain"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_30sp" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            />
+
+
+
+    </LinearLayout>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

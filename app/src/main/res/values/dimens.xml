@@ -9,5 +9,6 @@
     <dimen name="margin_10dp">10dp</dimen>
     <dimen name="text_size_100sp">100sp</dimen>
     <dimen name="margin_50dp">50dp</dimen>
+    <dimen name="text_size_20sp">20sp</dimen>
 
 </resources>

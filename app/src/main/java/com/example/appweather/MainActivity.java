@@ -4,23 +4,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 
+import com.example.appweather.retrofiltutils.Data;
 import com.google.android.material.snackbar.Snackbar;
-
-import java.time.Instant;
 
 public class MainActivity extends AppCompatActivity {
 
+
+    public static final String TAG_LOCATION = "LOCATION";
     EditText etLatitude;
     EditText etLongitude;
     Button btnGetWeather;
-
-    ProgressBar pb;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +26,7 @@ public class MainActivity extends AppCompatActivity {
         etLatitude = findViewById(R.id.et_latitude);
         etLongitude = findViewById(R.id.et_longitude);
         btnGetWeather = findViewById(R.id.btn_get_weather);
-        pb = findViewById(R.id.progressBar);
-        pb.setVisibility(View.GONE);
+
 
         btnGetWeather.setOnClickListener(v -> {
             String latitude = etLatitude.getText().toString();
@@ -40,10 +35,9 @@ public class MainActivity extends AppCompatActivity {
             if (latitude.isEmpty() || longitude.isEmpty()) {
                 Snackbar.make(btnGetWeather, R.string.errorMessage, Snackbar.LENGTH_SHORT).show();
             }else {
-                pb.setVisibility(View.VISIBLE);
+                Data data = new Data(Double.parseDouble(latitude), Double.parseDouble(longitude));
                 Intent intent = new Intent(this, WeatherActivity.class);
-                intent.putExtra("latitude", latitude);
-                intent.putExtra("longitude", longitude);
+                intent.putExtra(TAG_LOCATION, data);
                 startActivity(intent);
             }
 
