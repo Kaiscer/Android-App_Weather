@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">App Weather</string>
+    <string name="hint_latitude">Latitud</string>
+    <string name="btn_get_weather">Consultar tiempo</string>
+    <string name="errorMessage">Debes introducir la Latitud y la Longitud</string>
+    <string name="txt_humidity">Humedad</string>
+    <string name="txt_rain">Rain</string>
+</resources>
